@@ -1,3 +1,3 @@
-# script, show list all databases.
+-- script, show list all databases.
 SHOW DATABASES;
 
