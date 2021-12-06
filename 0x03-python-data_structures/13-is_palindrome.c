@@ -7,33 +7,38 @@
  * Return: 1 if is palindrome or 0 if not palindrome
  */
 int is_palindrome(listint_t **head)
-{
-	listint_t *h;
-	int i = 0, n = 0;
-	int *numbers;
+{		  
+	listint_t *vodka = *head;	
+	listint_t *vino = *head;	
+	listint_t *ron = NULL;		
+	int count = 0;	
+	int ver = 0;	
 
-	if (head == NULL)
+	if (*head == NULL)
 		return (1);
-
-	h = *head;
-
-	while (!h)
-	{
-		*numbers = h->n;
-	        h = h->next;
-		n++;
-		numbers++;
+	while (vino->next != NULL)	
+	{	
+		vino = vino->next;		
+		count += 1;		
 	}
-
-	if (n == 0)
-		return (1);
-
-
-	while (i < n / 2)
+	 if (count % 2 != 0)
+	 {
+		 count -= 1;	
+	 }
+	while (ver < count/2)
 	{
-		if (numbers[i] != numbers[n - i - 1])
-			return (0);
-	}
-
+		if (vodka->n != vino->n)	
+		{
+			return (0);	
+		}
+		vodka = vodka->next;
+		ron = vodka;
+		while (ron->next != vino)
+		{
+			ron = ron->next;	
+		}
+		vino = ron;	
+		ver++;		
+	}	
 	return (1);
 }
